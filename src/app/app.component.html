@@ -1,0 +1,148 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <!-- Brand/logo -->
+  <a class="navbar-brand" href="#">
+    <img src="assets/images/amtrak.jpg" alt="Amtrak" style="width:50px;" />
+  </a>
+  <span class="mr-auto"><h6>AMTRAK</h6></span>
+  <span> <i class="material-icons">person</i></span>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2 sidenav">
+      <div class="container data">
+        <div><a href="#">Home</a></div>
+        <div><a href="#">Home</a></div>
+        <div><a href="#">Home</a></div>
+        <div><a href="#">Home</a></div>
+        <div><a href="#">Home</a></div>
+      </div>
+    </div>
+    <div class="col-sm-6 main">
+      <form novalidate [formGroup]="userForm">
+        <div><h5>Cancelation</h5></div>
+        <div class="form-group">
+          <span>Enter Service Number</span>
+
+          <input
+            type="text"
+            formControlName="serviceNumber"
+            class="form-control col-sm-4"
+          />
+        </div>
+        <div class="form-group">
+          <div class="custom-control custom-radio custom-control-inline">
+            <input
+              type="radio"
+              class="custom-control-input"
+              id="defaultInline1"
+              formControlName="plannedRadio"
+            />
+            <label class="custom-control-label" for="defaultInline1"
+              >Planned Cancelation</label
+            >
+          </div>
+
+          <!-- Default inline 2-->
+          <div class="custom-control custom-radio custom-control-inline">
+            <input
+              type="radio"
+              class="custom-control-input"
+              id="defaultInline2"
+              formControlName="unplannedRadio"
+            />
+            <label class="custom-control-label" for="defaultInline2"
+              >UnPlanned Cancelation</label
+            >
+          </div>
+        </div>
+        <div><label>Date(s) or Range</label></div>
+        <div class="form-group form-inline">
+          <input
+            type="text"
+            formControlName="fromDate"
+            class="form-control col-sm-3"
+            bsDatepicker
+          />
+          <p class="col-sm-1">to</p>
+          <input
+            type="text"
+            formControlName="toDate"
+            class="form-control col-sm-3"
+            bsDatepicker
+          />
+        </div>
+        <div><label>Cancelation Time</label></div>
+        <div class="form-group form-inline buttons">
+          <button class="btn btn-light rounded col-sm-3 mr-auto">
+            Every Day
+          </button>
+          <button class="btn btn-light rounded col-sm-3 mr-auto">
+            Mon-Fri
+          </button>
+          <button class="btn btn-light rounded col-sm-3">Sat and Sun</button>
+        </div>
+        <hr />
+        <span>Some Content</span>
+        <hr />
+        <div class="form-group">
+          <div class="custom-control custom-radio custom-control-inline">
+            <input
+              type="radio"
+              class="custom-control-input"
+              id="defaultInline1"
+              formControlName="completeCancel"
+            />
+            <label class="custom-control-label" for="defaultInline1"
+              >Complete Cancelation</label
+            >
+          </div>
+
+          <!-- Default inline 2-->
+          <div class="custom-control custom-radio custom-control-inline">
+            <input
+              type="radio"
+              class="custom-control-input"
+              id="defaultInline2"
+              formControlName="partialCancel"
+            />
+            <label class="custom-control-label" for="defaultInline2"
+              >Partial Cancelation</label
+            >
+          </div>
+        </div>
+
+        <div><label>Date(s) or Range</label></div>
+        <div class="form-group form-inline">
+          <input type="text" class="form-control col-sm-3" bsDatepicker />
+          <p class="col-sm-1">to</p>
+          <input type="text" class="form-control col-sm-3" bsDatepicker />
+        </div>
+
+        <span>Enter Service Number</span>
+        <div class="form-group form-inline">
+          <input
+            type="text"
+            formControlName="serviceNumber"
+            class="form-control col-sm-4 mr-auto"
+            (keypress)="getUserInfo($event, f.serviceNumber.value)"
+          />
+          <button
+            type="button"
+            (click)="getUser(f.serviceNumber.value, $event)"
+            class="form-control btn btn-primary col-sm-4"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+      <div class="jumbotron text-monospace" *ngIf="submitted">
+        <h2>User's Information</h2>
+        <div>Login:{{ user.login }}</div>
+        <div>ID:{{ user.id }}</div>
+        <div>URL:{{ user.url }}</div>
+        <!-- <div>Avatar_URL:{{ user.avatar_url }}</div> -->
+      </div>
+    </div>
+    <div class="col-sm-4 sidenav1"></div>
+  </div>
+</div>

@@ -56,49 +56,52 @@
           </div>
           <div><label>Cancelation Time</label></div>
           <div class="form-group form-inline buttons">
-            <button class="btn btn-light rounded col-sm-3 mr-auto">
+            <button class="btn btn-outline-dark rounded col-sm-3 mr-auto">
             Every Day
           </button>
-            <button class="btn btn-light rounded col-sm-3 mr-auto">
+            <button class="btn btn-outline-dark rounded col-sm-3 mr-auto">
             Mon-Fri
           </button>
-            <button class="btn btn-light rounded col-sm-3">Sat and Sun</button>
+            <button class="btn btn-outline-dark rounded col-sm-3">Sat and Sun</button>
           </div>
-          <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">More</button>
+          <button type="button" class="btn btn-light dropdown-toggle form-group" data-toggle="dropdown">More</button>
           <div id="demo" class="collapse show">
-            <div class="dropdown-menu">
+            <!--class="dropdown-menu"-->
+            <!--class="dropdown-item"-->
+
+            <div class=" form-group form-inline mr-auto">
               <label class="checkbox">
-                  <input type="checkbox" class="dropdown-item" value="">Sun
+                  <input type="checkbox"  value="">Sun
                 </label>
               <label class="checkbox">
-                  <input type="checkbox" class="dropdown-item" value="">Mon
+                  <input type="checkbox"  value="">Mon
                 </label>
               <label class="checkbox">
-                  <input type="checkbox" class="dropdown-item" value="">Tue
+                  <input type="checkbox"  value="">Tue
                 </label>
               <label class="checkbox">
-                  <input type="checkbox" class="dropdown-item" value="">Wed
+                  <input type="checkbox"  value="">Wed
                 </label>
               <label class="checkbox">
-                  <input type="checkbox" class="dropdown-item" value="">Thu
+                  <input type="checkbox"  value="">Thu
                 </label>
               <label class="checkbox">
-                  <input type="checkbox" class="dropdown-item" value="">Fri
+                  <input type="checkbox"  value="">Fri
                 </label>
               <label class="checkbox">
-                  <input type="checkbox" class="dropdown-item" value="">Sat
+                  <input type="checkbox"  value="">Sat
                 </label>
             </div>
           </div>
-
-          <label>Summary of Cancelation</label>
+          <div class="form-group">
+            <label>Summary of Cancelation</label></div>
+          <hr />
 
           <div *ngIf="submitted">
-            <hr />
+            <img src="assets/images/amtrak.jpg" alt="Amtrak" style="width:50px;" />
             <label>NorthEast Regional {{serviceNo}}  -   {{fromDt | date }}-{{toDt | date }} </label>
-            <hr />
           </div>
-
+          <hr />
 
 
           <div class="form-group">
@@ -148,7 +151,55 @@
             <br><br>
             <div class="form-group">
               <label>Impact Summary</label>
-                
+              <table border="0" cellspacing="0" cellpadding="0">
+                <tr><td>
+              <table class="table table-bordered">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>No. of Cusomers</th>
+                    <th>No. of PNR's</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="tableValue">200</td>
+                    <td class="tableValue">200</td>
+                  </tr>
+                </tbody>
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Cust. Connections</th>
+                    <th>PNR's Connections</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="tableValue">200</td>
+                    <td class="tableValue">200</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <table class="table table-bordered table-sm">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Connections</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="table table-sm">BSU-200</td></tr>
+                    <tr><td>200</td></tr>
+                    <tr><td>200</td></tr>
+                    <tr><td>200</td></tr>
+                    <tr><td>200</td></tr>
+                </tbody>
+              </table>
+              </td>
+              </tr>
+</table>
+
+
             </div>
 
 
@@ -157,7 +208,7 @@
             <div class="form-group">
               <span>Enter Service Number</span>
               <div class="form-group form-inline">
-                <input type="text" formControlName="serviceNumber" class="form-control col-sm-4" />
+                <input type="text" formControlName="serviceNumber" class="form-control col-sm-4 depart" [value]="serviceNo" />
                 <button type="button" (click)="getUser(f.serviceNumber.value, $event)" class="form-control btn btn-primary col-sm-2">
             Next
           </button>

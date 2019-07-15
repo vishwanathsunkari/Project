@@ -33,3 +33,12 @@ a {
 .depart{
   margin-right: 100px;
 }
+
+.table th{
+  color: white;
+}
+
+.tableValue{
+  text-align: center;
+  font-size: 200%;
+}

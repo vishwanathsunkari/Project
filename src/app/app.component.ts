@@ -13,7 +13,7 @@ import { IUser } from "./user";
 export class AppComponent implements OnInit {
   today =Date.now();
   title = "cognizant";
-  serviceNo;
+  serviceNo="";
   fromDt;
   toDt;
   user: IUser;
@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
   }
 
   getUserInfo(event, id) {
-    if (event.keyCode == 13 || event.keyCode == 9) {
+    if (event.keyCode == 9 || event.keyCode == 13) {
       this.submitted = true;
       this.serviceNo = id;
       this.fromDt = this.userForm.controls.fromDate.value;
@@ -50,13 +50,13 @@ export class AppComponent implements OnInit {
     }
   }
 
-  getUser(id) {
-    if (this.userForm.invalid) {
-      return;
-    }
-    this.appService.getUser(id).subscribe(data => {
+  // getUser(id) {
+  //   if (this.userForm.invalid) {
+  //     return;
+  //   }
+  //   this.appService.getUser(id).subscribe(data => {
       
-      this.user = data;
-    });
-  }
+  //     this.user = data;
+  //   });
+  // }
 }

@@ -31,6 +31,8 @@ a {
 }
 
 .depart{
+  display: flex;
+  justify-content: flex-start;
   margin-right: 100px;
 }
 
@@ -42,3 +44,9 @@ a {
   text-align: center;
   font-size: 200%;
 }
+
+.arrival{
+  display: flex;
+  justify-content: flex-start
+}
+

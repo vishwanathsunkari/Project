@@ -11,7 +11,11 @@ import { IUser } from "./user";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent implements OnInit {
+  today =Date.now();
   title = "cognizant";
+  serviceNo;
+  fromDt;
+  toDt;
   user: IUser;
   submitted = false;
   userForm: FormGroup;
@@ -25,8 +29,8 @@ export class AppComponent implements OnInit {
       serviceNumber: ["", Validators.required],
       plannedRadio: [""],
       unplannedRadio: [""],
-      fromDate: [""],
-      toDate: [""],
+      fromDate: ["", Validators.required],
+      toDate: ["", Validators.required],
       partialCancel: [""],
       completeCancel: [""]
     });
@@ -38,7 +42,11 @@ export class AppComponent implements OnInit {
 
   getUserInfo(event, id) {
     if (event.keyCode == 13 || event.keyCode == 9) {
-      this.getUser(id);
+      this.submitted = true;
+      this.serviceNo = id;
+      this.fromDt = this.userForm.controls.fromDate.value;
+      this.toDt = this.userForm.controls.toDate.value;
+      // this.getUser(id);
     }
   }
 
@@ -47,7 +55,7 @@ export class AppComponent implements OnInit {
       return;
     }
     this.appService.getUser(id).subscribe(data => {
-      this.submitted = true;
+      
       this.user = data;
     });
   }

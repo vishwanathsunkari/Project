@@ -5,7 +5,7 @@ h6 {
 
 .sidenav {
   /* border: 1px solid red; */
-  background-color: rgba(5, 140, 150, 0.377);
+  background-color: #3b5998;
 }
 
 .data {
@@ -14,7 +14,7 @@ h6 {
 
 a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 .sidenav1 {
@@ -24,4 +24,12 @@ a {
 
 .buttons {
   flex: auto;
+}
+
+.checkbox{
+  margin-right: auto;
+}
+
+.depart{
+  margin-right: 100px;
 }
